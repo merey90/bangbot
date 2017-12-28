@@ -6,6 +6,9 @@ const COMMANDS = ['Hello','Who are you?', 'Hi'];
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
+// Http webhook, for nginx/heroku users.
+bot.startWebhook('/secret-path', null, process.env.PORT || 5000)
+
 bot.use(Telegraf.log())
 
 bot.start((ctx) => {
