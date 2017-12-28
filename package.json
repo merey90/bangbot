@@ -1,0 +1,24 @@
+{
+  "name": "bangbot",
+  "version": "1.0.0",
+  "description": "Telegram Bot for Bang Game",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merey90/bangbot.git"
+  },
+  "author": "Merey Zholdas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merey90/bangbot/issues"
+  },
+  "homepage": "https://github.com/merey90/bangbot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0",
+    "request": "^2.83.0"
+  }
+}
