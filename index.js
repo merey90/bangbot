@@ -1,4 +1,6 @@
 const Telegraf = require('telegraf')
+const Extra = require('telegraf/extra')
+const Markup = require('telegraf/markup')
 
 const COMMANDS = ['Hello','Who are you?', 'Hi'];
 
