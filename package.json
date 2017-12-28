@@ -4,6 +4,7 @@
   "description": "Telegram Bot for Bang Game",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js",
     "start": "node index.js",
     "test": "test"
   },
