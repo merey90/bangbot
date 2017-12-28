@@ -1,34 +1,17 @@
-const Bot = require('node-telegram-bot-api');
-const request = require('request');
+const Telegraf = require('telegraf')
 
-const TOKEN = '434256346:AAGTZySuRVjkHvTsprPtZ6R6CjN9qy5hE68';
 const COMMANDS = ['Hello','Who are you?', 'Hi'];
 
-const bot = new Bot(TOKEN, {polling: true});
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
-//bot.on('message', (event) => console.log(event.text.toString());
+bot.start((ctx) => {
+  console.log('started:', ctx.from.id)
+  return ctx.reply('Welcome!')
+})
 
-bot.on('message', (msg) => {
-    switch (msg.text.toString()) {
-        case COMMANDS[0]:
-            bot.sendMessage(msg.chat.id, 'World!');
-        break;
-        case COMMANDS[1]:
-            bot.sendMessage(msg.chat.id, 'Bang game bot');
-        break;
-        case COMMANDS[2]:
-            bot.sendMessage(msg.chat.id, 'Yoloo!');
-        break;
-        default:
-            bot.sendMessage(msg.chat.id, 'Hi, wellcome to the game!', {
-                reply_markup: {
-                    keyboard: [COMMANDS, ['Bulk option']]
-                }
-            });
-        break;
-    }
-        // return request(url, (err, resp, body) => {
-        //     bot.sendMessage(msg.chat.id, prepareData(body));
-        // });
-    
-});
+bot.command('help', (ctx) => ctx.reply('Try send a sticker!'))
+bot.hears('hi', (ctx) => ctx.reply('Hey there!'))
+bot.hears(/buy/i, (ctx) => ctx.reply('Buy-buy!'))
+bot.on('sticker', (ctx) => ctx.reply('👍'))
+
+bot.startPolling()
